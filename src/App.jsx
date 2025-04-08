@@ -1,4 +1,4 @@
-// Importamos funciones necesarias de React
+
 import { useState, useEffect } from 'react';
 // Importamos una herramienta para generar identificadores únicos
 import { v4 as uuidv4 } from 'uuid';
@@ -9,14 +9,14 @@ import TaskList from './components/TaskList/TaskList';
 import TaskFilter from './components/TaskFilter/TaskFilter';
 import TaskStats from './components/TaskStats/TaskStats';
 
-// Creamos una tarea inicial para mostrar como ejemplo
+
 const initialTasks = [
   {
     id: uuidv4(),
     title: "Aprender React",
     description: "Estudiar los fundamentos de React",
     completed: false,
-    createdAt: new Date().toISOString() // Fecha actual
+    createdAt: new Date().toISOString() 
   }
 ];
 
@@ -24,9 +24,7 @@ function App() {
   // Guardamos la lista de tareas en el estado
   const [tasks, setTasks] = useState(() => {
     try {
-      // Intentamos cargar las tareas guardadas en el navegador
       const savedTasks = localStorage.getItem('tasks');
-      // Si hay tareas guardadas, las usamos. Si no, usamos la tarea inicial
       return savedTasks ? JSON.parse(savedTasks) : initialTasks;
     } catch (error) {
       console.error("Error al cargar las tareas desde localStorage", error);
@@ -34,13 +32,13 @@ function App() {
     }
   });
 
-  // Estado para filtrar las tareas (todas, activas o completadas)
+  
   const [filter, setFilter] = useState('all');
 
-  // Estado para saber si se está editando una tarea
+  
   const [editingTask, setEditingTask] = useState(null);
 
-  // Cada vez que cambie la lista de tareas, la guardamos en el navegador
+  
   useEffect(() => {
     try {
       console.log("Guardando tareas en localStorage", tasks);
