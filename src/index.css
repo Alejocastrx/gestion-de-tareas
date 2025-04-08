@@ -1,0 +1,205 @@
+@tailwind base;
+
+/* Se define un estilo base para todos los elementos: se eliminan márgenes y rellenos, y se asegura que el tamaño se calcule de manera más fácil */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Se establece un tamaño base de fuente para toda la página */
+html {
+  font-size: 16px;
+}
+
+/* Aquí se configuran los estilos generales del cuerpo de la página: tipo de letra, colores de fondo y texto, alineación del contenido, etc. */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to bottom right, #121826, #1e2535); /* Fondo con degradado */
+  color: #e5e7eb; /* Color claro para el texto */
+  line-height: 1.6; /* Espaciado entre líneas */
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* Estilos para títulos */
+h1, h2, h3, h4 {
+  font-weight: bold;
+  color: #f9fafb;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Ajuste de tamaño para h2 */
+h2 {
+  font-size: 1.75em;
+}
+
+@tailwind components;
+
+/* Estilo personalizado para los botones */
+.button {
+  @apply bg-gradient-to-r from-blue-700 to-blue-900 text-white py-3 px-6 rounded-lg transition-all duration-300 shadow-lg;
+}
+
+/* Efecto cuando pasamos el mouse sobre el botón */
+.button:hover {
+  @apply bg-gradient-to-r from-blue-900 to-blue-700 scale-105;
+}
+
+/* Estilo para una tarjeta o cuadro de contenido */
+.card {
+  @apply bg-gray-800 text-gray-200 p-8 rounded-xl shadow-2xl border border-gray-600;
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 600px;
+}
+
+@tailwind utilities;
+
+/* Se añaden funciones extra para reutilizar estilos */
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin; /* Barra de desplazamiento delgada */
+  }
+
+  .scrollbar-thumb {
+    scrollbar-color: #334155 #1e293b; /* Colores para la barra de desplazamiento */
+  }
+
+  .custom-shadow {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
+  }
+
+  .text-gradient {
+    background-image: linear-gradient(to right, #f8fafc, #e5e7eb); /* Degradado en el texto */
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+}
+
+/* Estilos generales para toda la página */
+:root {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #e5e7eb;
+  background-color: #121826;
+}
+
+/* Estilos para los enlaces */
+a {
+  font-weight: 600;
+  color: #93c5fd;
+  text-decoration: none;
+}
+
+/* Color más llamativo cuando se pasa el mouse sobre un enlace */
+a:hover {
+  color: #60a5fa;
+}
+
+/* Estilos para los botones */
+button {
+  border-radius: 8px;
+  border: none;
+  padding: 0.8em 1.6em;
+  font-size: 1.1em;
+  font-weight: 700;
+  font-family: inherit;
+  background: linear-gradient(135deg, #2563eb, #1e3a8a);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin: 5px;
+  box-shadow: 0px 4px 12px rgba(37, 99, 235, 0.4);
+}
+
+/* Efecto visual cuando se pasa el mouse sobre un botón */
+button:hover {
+  background: linear-gradient(135deg, #1e3a8a, #2563eb);
+  transform: scale(1.05); /* Hace que el botón se agrande un poco */
+}
+
+/* Contenedor para alinear los botones */
+.buttons-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Espacio entre botones */
+  margin-top: 30px;
+}
+
+/* Estilo general para formularios */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  padding: 25px;
+  background: #1e2535;
+  border-radius: 16px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  border: 2px solid #2563eb;
+}
+
+/* Agrupación de campos dentro del formulario */
+form .input-group {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/* Estilos para las etiquetas (nombres de los campos) */
+form label {
+  font-size: 1.25em;
+  font-weight: bold;
+  text-align: center;
+  display: block;
+  margin-bottom: 10px;
+  color: #e0e7ff;
+}
+
+/* Estilos para campos de entrada y área de texto */
+form input, form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #2563eb;
+  border-radius: 8px;
+  font-size: 1em;
+  color: #e5e7eb;
+  background-color: #334155;
+}
+
+/* Efecto cuando el usuario hace clic o selecciona un campo */
+form input:focus, form textarea:focus {
+  border-color: #93c5fd;
+  box-shadow: 0px 3px 8px rgba(147, 197, 253, 0.4);
+}
+
+/* Tamaño mínimo y comportamiento del área de texto */
+form textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
+/* Cambios de colores para cuando el navegador está en modo claro */
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #1e293b;
+    background-color: #f8fafc;
+  }
+
+  a:hover {
+    color: #2563eb;
+  }
+
+  button {
+    background: linear-gradient(135deg, #2563eb, #1e3a8a);
+  }
+}
